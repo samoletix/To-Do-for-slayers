@@ -1,0 +1,60 @@
+{
+  "name": "to-do-for-slayers",
+  "version": "2.0.0",
+  "description": "Список дел для слэеров Geometry Dash (Global Demonlist)",
+  "main": "./out/main/index.js",
+  "author": "",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "electron-vite dev",
+    "start": "electron-vite preview",
+    "build": "electron-vite build",
+    "icon": "node scripts/make-icon.cjs",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
+    "dist": "electron-vite build && electron-builder --win --x64",
+    "dist:portable": "electron-vite build && electron-builder --win portable --x64"
+  },
+  "build": {
+    "appId": "com.todoforslayers.app",
+    "productName": "To-Do for slayers",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "out/**/*",
+      "build/icon.ico",
+      "package.json"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "To-Do for slayers"
+    },
+    "portable": {
+      "artifactName": "To-Do-for-slayers-${version}-portable.${ext}"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "electron": "^44.5.1",
+    "electron-builder": "^26.15.3",
+    "electron-vite": "^5.0.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.6"
+  }
+}

@@ -1,0 +1,9 @@
+node_modules/
+out/
+dist/
+*.tsbuildinfo
+*.log
+.DS_Store
+
+# копия для github (загружается отдельно)
+github/
