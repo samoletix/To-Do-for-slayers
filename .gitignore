@@ -7,3 +7,10 @@ dist/
 
 # копия для github (загружается отдельно)
 github/
+
+# личные данные
+превью/
+*.broken-*
+to-do-for-slayers.json
+strings.txt
+strings.en.txt
